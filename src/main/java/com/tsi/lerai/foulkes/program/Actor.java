@@ -7,13 +7,11 @@ import javax.persistence.*;
 public class Actor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int actor_id ;
-
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long actor_id  ;
     //Attributes
     private String first_name ;
     private String last_name ;
-
     public Actor(String first_name, String last_name){
         this.first_name=first_name;
         this.last_name=last_name;
@@ -24,11 +22,11 @@ public class Actor {
 
     //Getter and Setters
 
-    public int getActor_id() {
+    public Long getActor_id() {
         return actor_id;
     }
 
-    public void setActor_id(int actor_id) {
+    public void setActor_id(Long actor_id) {
         this.actor_id = actor_id;
     }
 

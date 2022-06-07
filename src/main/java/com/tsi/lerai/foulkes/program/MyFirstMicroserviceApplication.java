@@ -3,32 +3,36 @@ package com.tsi.lerai.foulkes.program;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Scanner;
+
 @SpringBootApplication
 @RestController
 @RequestMapping("/")
-
+@CrossOrigin
 public class MyFirstMicroserviceApplication {
+
 
 	@Autowired
 	private ActorRepo actorRepo;
+	public MyFirstMicroserviceApplication(ActorRepo actorRepo) {
+		this.actorRepo = actorRepo;
+	}
 
 	public static void main(String[] args) {
 		SpringApplication.run(MyFirstMicroserviceApplication.class, args);
 	}
 
-
-	public MyFirstMicroserviceApplication(ActorRepo actorRepo) {
-		this.actorRepo = actorRepo;
+	public ActorRepo getActorRepo(){
+		return actorRepo;
 	}
+
+
 
 	@GetMapping
 	public @ResponseBody
-	Iterable<Actor>getAllActors(){
-		return actorRepo.findAll();
-	}
+	Iterable<Actor> getAllActors(){
+		return actorRepo.findAll();	}
 
 }
