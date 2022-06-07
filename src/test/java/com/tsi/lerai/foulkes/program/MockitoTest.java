@@ -46,11 +46,15 @@ public void deleteActorEntry(){
     actorController.addActor("" ,"") ;
 }
 
-@Test
-    public void actorContains(){
-    Assertions.assertEquals(actorController.idExists(1L), true , "Does not work " );
-}
 //@Test
+//    public void actorContains(){
+//    Actor dummyActor = new Actor("John" , "Doe") ;
+//    String actual = actorController.addActor(dummyActor.getFirst_name(),dummyActor.getLast_name());
+//    ArgumentCaptor<Actor> actorArgumentCaptor = ArgumentCaptor.forClass(Actor.class);
+//    verify(actorRepo).save(actorArgumentCaptor.capture());
+//    Assertions.assertEquals(actorController.idExists(Long.valueOf(1)), true , "Does not work " );
+//}
+////@Test
 //    public void updateActorEntry() {
 //    String actual = actorController.updateActor(1L,"CHARLOTTE","HARRIS");
 //    Assertions.assertEquals("Updated Successfully", actual , "The function did not complete");
