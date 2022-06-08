@@ -24,10 +24,6 @@ public class MyFirstMicroserviceApplication {
 		SpringApplication.run(MyFirstMicroserviceApplication.class, args);
 	}
 
-	public ActorRepo getActorRepo(){
-		return actorRepo;
-	}
-
 
 
 	@GetMapping
