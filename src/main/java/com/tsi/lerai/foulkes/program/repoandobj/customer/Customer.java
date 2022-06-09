@@ -9,7 +9,7 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long actor_id  ;
+    private Long customer_id  ;
 
     //Attributes
         private int  store_id ;
@@ -26,11 +26,11 @@ public class Customer {
     public Customer() {}
 
     public Long getActor_id() {
-        return actor_id;
+        return customer_id;
     }
 
     public void setActor_id(Long actor_id) {
-        this.actor_id = actor_id;
+        this.customer_id = actor_id;
     }
 
     public int getStore_id() {

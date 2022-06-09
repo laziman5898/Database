@@ -25,10 +25,4 @@ public class MyFirstMicroserviceApplication {
 	}
 
 
-
-	@GetMapping
-	public @ResponseBody
-	Iterable<Actor> getAllActors(){
-		return actorRepo.findAll();	}
-
 }
