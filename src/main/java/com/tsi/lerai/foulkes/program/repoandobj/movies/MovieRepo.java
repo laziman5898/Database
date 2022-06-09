@@ -1,6 +1,5 @@
-package com.tsi.lerai.foulkes.program.movies;
+package com.tsi.lerai.foulkes.program.repoandobj.movies;
 
-import com.tsi.lerai.foulkes.program.Actor;
 import org.springframework.data.repository.CrudRepository;
 
 public interface MovieRepo extends CrudRepository<Movie,Long> {

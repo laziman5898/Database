@@ -1,4 +1,4 @@
-package com.tsi.lerai.foulkes.program.customer;
+package com.tsi.lerai.foulkes.program.repoandobj.customer;
 
 import org.springframework.data.repository.CrudRepository;
 

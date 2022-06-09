@@ -1,8 +1,8 @@
 package com.tsi.lerai.foulkes.program.controller;
 
-import com.tsi.lerai.foulkes.program.Actor;
-import com.tsi.lerai.foulkes.program.ActorRepo;
-import com.tsi.lerai.foulkes.program.service.ActorService;
+import com.tsi.lerai.foulkes.program.repoandobj.actor.Actor;
+import com.tsi.lerai.foulkes.program.repoandobj.actor.ActorRepo;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,7 +16,7 @@ import java.util.Objects;
 public class ActorController {
 
    @Autowired private ActorRepo actorRepo ;
-   @Autowired private ActorService actorService ;
+
 
    public ActorController(ActorRepo actorRepo){this.actorRepo=actorRepo ;}
 

@@ -1,9 +1,7 @@
 package com.tsi.lerai.foulkes.program.controller;
 
-import com.tsi.lerai.foulkes.program.Actor;
-import com.tsi.lerai.foulkes.program.ActorRepo;
-import com.tsi.lerai.foulkes.program.movies.Movie;
-import com.tsi.lerai.foulkes.program.movies.MovieRepo;
+import com.tsi.lerai.foulkes.program.repoandobj.movies.Movie;
+import com.tsi.lerai.foulkes.program.repoandobj.movies.MovieRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

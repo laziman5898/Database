@@ -1,12 +1,10 @@
-package com.tsi.lerai.foulkes.program.customer;
+package com.tsi.lerai.foulkes.program.repoandobj.customer;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 @Entity
+@Table(name = "customer")
 public class Customer {
 
     @Id
@@ -24,11 +22,8 @@ public class Customer {
         private LocalDate last_update;
 
         //Constructor
-    public Customer (String first_name, String last_name, String email) {
-        this.first_name=first_name;
-        this.last_name = last_name ;
-        this.email = email;
-    }
+
+    public Customer() {}
 
     public Long getActor_id() {
         return actor_id;

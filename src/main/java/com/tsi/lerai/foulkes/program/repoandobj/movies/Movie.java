@@ -1,4 +1,4 @@
-package com.tsi.lerai.foulkes.program.movies;
+package com.tsi.lerai.foulkes.program.repoandobj.movies;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -29,6 +29,9 @@ public class Movie {
         this.length=length;
         this.rating=rating ;
     }
+
+    //Empty Constructor
+    public Movie() {}
 
     //Getters and Setters
     public Long getFilm_id() {
