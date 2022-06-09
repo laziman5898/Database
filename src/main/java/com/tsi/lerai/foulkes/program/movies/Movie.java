@@ -24,7 +24,11 @@ public class Movie {
     private String special_features ;
     private LocalDate last_update ;
 
-    public Movie(){}
+    public Movie(String title, int length , String rating){
+        this.title=title;
+        this.length=length;
+        this.rating=rating ;
+    }
 
     //Getters and Setters
     public Long getFilm_id() {

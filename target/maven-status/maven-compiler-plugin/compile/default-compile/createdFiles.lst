@@ -1,3 +1,12 @@
 com\tsi\lerai\foulkes\program\ActorRepo.class
+com\tsi\lerai\foulkes\program\controller\MovieController.class
+com\tsi\lerai\foulkes\program\movies\Movie.class
+com\tsi\lerai\foulkes\program\service\ActorServiceImplementation.class
+com\tsi\lerai\foulkes\program\customer\CustomerRepo.class
+com\tsi\lerai\foulkes\program\customer\Customer.class
 com\tsi\lerai\foulkes\program\MyFirstMicroserviceApplication.class
 com\tsi\lerai\foulkes\program\Actor.class
+com\tsi\lerai\foulkes\program\controller\ActorController.class
+com\tsi\lerai\foulkes\program\movies\MovieRepo.class
+com\tsi\lerai\foulkes\program\service\ActorService.class
+com\tsi\lerai\foulkes\program\controller\CustomerController.class

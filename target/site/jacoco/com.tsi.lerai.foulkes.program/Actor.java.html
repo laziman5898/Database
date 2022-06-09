@@ -7,45 +7,43 @@ import javax.persistence.*;
 public class Actor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int actor_id ;
-
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private Long actor_id  ;
     //Attributes
     private String first_name ;
     private String last_name ;
-
-<span class="nc" id="L17">    public Actor(String first_name, String last_name){</span>
-<span class="nc" id="L18">        this.first_name=first_name;</span>
-<span class="nc" id="L19">        this.last_name=last_name;</span>
-<span class="nc" id="L20">    }</span>
+<span class="fc" id="L15">    public Actor(String first_name, String last_name){</span>
+<span class="fc" id="L16">        this.first_name=first_name;</span>
+<span class="fc" id="L17">        this.last_name=last_name;</span>
+<span class="fc" id="L18">    }</span>
 
     //Empty Constructor
-<span class="nc" id="L23">    public Actor() {}</span>
+<span class="fc" id="L21">    public Actor() {}</span>
 
     //Getter and Setters
 
-    public int getActor_id() {
-<span class="nc" id="L28">        return actor_id;</span>
+    public Long getActor_id() {
+<span class="fc" id="L26">        return actor_id;</span>
     }
 
-    public void setActor_id(int actor_id) {
-<span class="nc" id="L32">        this.actor_id = actor_id;</span>
-<span class="nc" id="L33">    }</span>
+    public void setActor_id(Long actor_id) {
+<span class="fc" id="L30">        this.actor_id = actor_id;</span>
+<span class="fc" id="L31">    }</span>
 
     public String getFirst_name() {
-<span class="nc" id="L36">        return first_name;</span>
+<span class="fc" id="L34">        return first_name;</span>
     }
 
     public void setFirst_name(String first_name) {
-<span class="nc" id="L40">        this.first_name = first_name;</span>
-<span class="nc" id="L41">    }</span>
+<span class="nc" id="L38">        this.first_name = first_name;</span>
+<span class="nc" id="L39">    }</span>
 
     public String getLast_name() {
-<span class="nc" id="L44">        return last_name;</span>
+<span class="fc" id="L42">        return last_name;</span>
     }
 
     public void setLast_name(String last_name) {
-<span class="nc" id="L48">        this.last_name = last_name;</span>
-<span class="nc" id="L49">    }</span>
+<span class="nc" id="L46">        this.last_name = last_name;</span>
+<span class="nc" id="L47">    }</span>
 }
-</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.8.202204050719</span></div></body></html>
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

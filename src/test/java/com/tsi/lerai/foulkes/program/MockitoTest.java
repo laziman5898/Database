@@ -15,7 +15,7 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class MockitoTest {
-    @InjectMocks
+
     private MyFirstMicroserviceApplication myFirstMicroserviceApplication ;
     @Mock
     private ActorRepo actorRepo;
@@ -26,7 +26,7 @@ public class MockitoTest {
     void setup(){
     actorRepo = mock(ActorRepo.class);
      myFirstMicroserviceApplication = new MyFirstMicroserviceApplication(actorRepo);
-    actorController=new ActorController(actorRepo);
+     actorController=new ActorController(actorRepo);
 }
 
 @Test
@@ -43,31 +43,27 @@ actorController.fetchActor();
     String actual = actorController.addActor(dummyActor.getFirst_name(),dummyActor.getLast_name());
     ArgumentCaptor<Actor> actorArgumentCaptor = ArgumentCaptor.forClass(Actor.class);
     verify(actorRepo).save(actorArgumentCaptor.capture());
-    actorArgumentCaptor.getAllValues().get(0).getActor_id();
+    Assertions.assertEquals("saved",actual,"entry is not saved into the database");
+    }
 
-  //when(actorArgumentCaptor.getAllValues().get(0).getActor_id())
+@Test
+public void deleteActorEntry(){
+    Actor dummyActor = new Actor("John" , "Doe") ;
+
+    actorController.addActor(dummyActor.getFirst_name(),dummyActor.getLast_name());
+    ArgumentCaptor<Actor> actorArgumentCaptor = ArgumentCaptor.forClass(Actor.class);
+    verify(actorRepo).save(actorArgumentCaptor.capture());
+
+//    actorArgumentCaptor.getAllValues().get(0).setActor_id(0l);
     System.out.println(actorArgumentCaptor.getAllValues().get(0).getActor_id());
 
-    Assertions.assertEquals("saved",actual,"entry is not saved into the database");
+//actorController.deleteActorById(0l);
 
+    System.out.println(actorArgumentCaptor.getAllValues().size());
 
+    //Assertions.assertEquals(0 ,actorArgumentCaptor.getAllValues().size(),"entry is not deleted out the database");
+    //Assertions.assertEquals(true ,actorRepo.existsById(1L),"entry is not deleted out the database");
 }
-
-//@Test
-//public void deleteActorEntry(){
-//    Actor dummyActor = new Actor("John" , "Doe") ;
-//    dummyActor.setActor_id(1L);
-//
-//    actorController.addActor(dummyActor.getFirst_name(),dummyActor.getLast_name());
-//    ArgumentCaptor<Actor> actorArgumentCaptor = ArgumentCaptor.forClass(Actor.class);
-//    verify(actorRepo).save(actorArgumentCaptor.capture());
-//    actorArgumentCaptor.getAllValues().get(0).setActor_id(1L);
-//    verify(actorRepo).existsById(1L);
-//    System.out.println(actorArgumentCaptor.getAllValues().size());
-//
-//    //Assertions.assertEquals(0 ,actorArgumentCaptor.getAllValues().size(),"entry is not deleted out the database");
-//    //Assertions.assertEquals(true ,actorRepo.existsById(1L),"entry is not deleted out the database");
-//}
 
 //@Test
 //    public void actorContains(){

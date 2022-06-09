@@ -23,9 +23,6 @@ public class ActorStepDef {
 
     private ActorController actorController ;
 
-
-
-
     @Given("I have the actor")
     public void i_have_the_actor() {
         // Write code here that turns the phrase above into concrete actions
