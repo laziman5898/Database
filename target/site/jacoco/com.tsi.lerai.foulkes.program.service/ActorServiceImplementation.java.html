@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>ActorServiceImplementation.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MyFirstMicroservice</a> &gt; <a href="index.source.html" class="el_package">com.tsi.lerai.foulkes.program.service</a> &gt; <span class="el_source">ActorServiceImplementation.java</span></div><h1>ActorServiceImplementation.java</h1><pre class="source lang-java linenums">package com.tsi.lerai.foulkes.program.service;
+
+import com.tsi.lerai.foulkes.program.Actor;
+import com.tsi.lerai.foulkes.program.ActorRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Objects;
+
+@Service
+<span class="fc" id="L12">public class ActorServiceImplementation implements ActorService {</span>
+
+    @Autowired
+    private ActorRepo actorRepo;
+
+    @Override
+    public Actor saveActor(Actor actor) {
+<span class="nc" id="L19">        return actorRepo.save(actor);</span>
+    }
+
+    @Override
+    public List&lt;Actor&gt; fetchActor() {
+<span class="nc" id="L24">        return (List&lt;Actor&gt;) actorRepo.findAll();</span>
+    }
+
+    @Override
+    public Actor updateActor(Actor actor, Long actorId) {
+<span class="nc" id="L29">      Actor actorDB = actorRepo.findById(actorId).get() ;</span>
+
+<span class="nc bnc" id="L31" title="All 4 branches missed.">      if (Objects.nonNull(actor.getFirst_name()) &amp;&amp; !&quot;&quot;.equalsIgnoreCase(actor.getFirst_name())){</span>
+<span class="nc" id="L32">          actorDB.setFirst_name(actor.getFirst_name());</span>
+      }
+<span class="nc bnc" id="L34" title="All 4 branches missed.">        if (Objects.nonNull(actor.getLast_name()) &amp;&amp; !&quot;&quot;.equalsIgnoreCase(actor.getLast_name())){</span>
+<span class="nc" id="L35">            actorDB.setLast_name(actor.getLast_name());</span>
+        }
+<span class="nc" id="L37">return actorRepo.save(actorDB);</span>
+    }
+
+    @Override
+    public void deleteActorById(Long actorId) {
+<span class="nc" id="L42">    actorRepo.deleteById(actorId);</span>
+<span class="nc" id="L43">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

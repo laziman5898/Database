@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Movie.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MyFirstMicroservice</a> &gt; <a href="index.source.html" class="el_package">com.tsi.lerai.foulkes.program.movies</a> &gt; <span class="el_source">Movie.java</span></div><h1>Movie.java</h1><pre class="source lang-java linenums">package com.tsi.lerai.foulkes.program.movies;
+
+import javax.persistence.*;
+import java.time.LocalDate;
+
+@Entity
+@Table(name = &quot;film&quot;)
+public class Movie {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long film_id  ;
+
+    // Movie Attributes
+    private String title ;
+    private String description ;
+    private int release_year;
+    private int language_id ;
+    private int rental_duration ;
+    private int rental_rate ;
+    private int length ;
+    private int replacement_cost ;
+    private String rating ;
+    private String special_features ;
+    private LocalDate last_update ;
+
+<span class="nc" id="L27">    public Movie(String title, int length , String rating){</span>
+<span class="nc" id="L28">        this.title=title;</span>
+<span class="nc" id="L29">        this.length=length;</span>
+<span class="nc" id="L30">        this.rating=rating ;</span>
+<span class="nc" id="L31">    }</span>
+
+    //Getters and Setters
+    public Long getFilm_id() {
+<span class="nc" id="L35">        return film_id;</span>
+    }
+
+    public void setFilm_id(Long film_id) {
+<span class="nc" id="L39">        this.film_id = film_id;</span>
+<span class="nc" id="L40">    }</span>
+
+    public String getTitle() {
+<span class="nc" id="L43">        return title;</span>
+    }
+
+    public void setTitle(String title) {
+<span class="nc" id="L47">        this.title = title;</span>
+<span class="nc" id="L48">    }</span>
+
+    public String getDescription() {
+<span class="nc" id="L51">        return description;</span>
+    }
+
+    public void setDescription(String description) {
+<span class="nc" id="L55">        this.description = description;</span>
+<span class="nc" id="L56">    }</span>
+
+    public int getRelease_year() {
+<span class="nc" id="L59">        return release_year;</span>
+    }
+
+    public void setRelease_year(int release_year) {
+<span class="nc" id="L63">        this.release_year = release_year;</span>
+<span class="nc" id="L64">    }</span>
+
+    public int getLanguage_id() {
+<span class="nc" id="L67">        return language_id;</span>
+    }
+
+    public void setLanguage_id(int language_id) {
+<span class="nc" id="L71">        this.language_id = language_id;</span>
+<span class="nc" id="L72">    }</span>
+
+    public int getRental_duration() {
+<span class="nc" id="L75">        return rental_duration;</span>
+    }
+
+    public void setRental_duration(int rental_duration) {
+<span class="nc" id="L79">        this.rental_duration = rental_duration;</span>
+<span class="nc" id="L80">    }</span>
+
+    public int getRental_rate() {
+<span class="nc" id="L83">        return rental_rate;</span>
+    }
+
+    public void setRental_rate(int rental_rate) {
+<span class="nc" id="L87">        this.rental_rate = rental_rate;</span>
+<span class="nc" id="L88">    }</span>
+
+    public int getLength() {
+<span class="nc" id="L91">        return length;</span>
+    }
+
+    public void setLength(int length) {
+<span class="nc" id="L95">        this.length = length;</span>
+<span class="nc" id="L96">    }</span>
+
+    public int getReplacement_cost() {
+<span class="nc" id="L99">        return replacement_cost;</span>
+    }
+
+    public void setReplacement_cost(int replacement_cost) {
+<span class="nc" id="L103">        this.replacement_cost = replacement_cost;</span>
+<span class="nc" id="L104">    }</span>
+
+    public String getRating() {
+<span class="nc" id="L107">        return rating;</span>
+    }
+
+    public void setRating(String rating) {
+<span class="nc" id="L111">        this.rating = rating;</span>
+<span class="nc" id="L112">    }</span>
+
+    public String getSpecial_features() {
+<span class="nc" id="L115">        return special_features;</span>
+    }
+
+    public void setSpecial_features(String special_features) {
+<span class="nc" id="L119">        this.special_features = special_features;</span>
+<span class="nc" id="L120">    }</span>
+
+    public LocalDate getLast_update() {
+<span class="nc" id="L123">        return last_update;</span>
+    }
+
+    public void setLast_update(LocalDate last_update) {
+<span class="nc" id="L127">        this.last_update = last_update;</span>
+<span class="nc" id="L128">    }</span>
+}
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
