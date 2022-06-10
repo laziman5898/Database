@@ -10,7 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.*;
+import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.mockito.stubbing.Answer;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -35,42 +37,56 @@ public class MockitoTest {
     actorRepo = mock(ActorRepo.class);
     ArgumentCaptor<Actor> actorArgumentCaptor = ArgumentCaptor.forClass(Actor.class);
      myFirstMicroserviceApplication = new MyFirstMicroserviceApplication(actorRepo);
-
-
-
     actorController=new ActorController(actorRepo);
+
+
+
 }
 
 @Test
 public void getAllActorEntries(){
-actorController.fetchActor();
+    //Setup Mock Enviroment for actorRepo
+    List<Actor> list = new ArrayList<Actor>();
+    Actor actor = new Actor("John","Doe");
+    actor.setActor_id(0L);
+    list.add(actor);
+    when(actorRepo.findAll()).thenReturn(list);
+    List<Actor> expected = list;
+    List<Actor> actual = actorController.fetchActor();
+
+    //Tests
     verify(actorRepo).findAll();
+    Assertions.assertEquals(list ,actual , "A list is not returned");
+    Assertions.assertEquals(0L , actorController.fetchActor().get(0).getActor_id(), "Actor id is  not 0");
+    Assertions.assertEquals("John" , actorController.fetchActor().get(0).getFirst_name(), "Actor name is  not John");
+    Assertions.assertEquals("Doe" , actorController.fetchActor().get(0).getLast_name(), "Actor Last name is not Doe");
+    Assertions.assertEquals(1,actorController.fetchActor().size(),"All actors were not fetched");
+
 
 }
 @Test
   public void addActorTest(){
-    Actor dummyActor = new Actor("John" , "Doe") ;
-    dummyActor.setActor_id(1L);
-
-    String actual = actorController.addActor(dummyActor.getFirst_name(),dummyActor.getLast_name());
-    ArgumentCaptor<Actor> actorArgumentCaptor = ArgumentCaptor.forClass(Actor.class);
-    verify(actorRepo).save(actorArgumentCaptor.capture());
-    //System.out.println(actorArgumentCaptor.getAllValues().get(0).getFirst_name());
-    //Assertions.assertEquals("saved",actual,"entry is not saved into the database");
+//
+//    //Setup Mock actorRepo
+//    List<Actor> list = new ArrayList<Actor>();
+//    Actor actor = new Actor("John","Doe");
+//    actor.setActor_id(0L);
+//    list.add(actor);
+//    when(actorRepo.findAll()).thenReturn(list);
+//
+//
+//    when(actorRepo.save(any(Actor.class))).thenAnswer(answer);
+//    actorController.addActor(actor.getFirst_name(),actor.getLast_name());
+//
+//
+//    //Tests
+//
+//    Assertions.assertEquals(1,actorRepo.findAll(),"Item has not been added");
     }
 
 @Test
 public void deleteActorEntry(){
-System.out.println(actorRepo.findAll());
-//
-    actorController.addActor("JAmes", "rose");
-//    actorRepo.save();
-    List<Actor> list = new ArrayList<Actor>();
-    Actor actor1 = new Actor("","");
-    Actor abbas = new Actor("Abbas", "");
-    list.add(actor1);
 
-    when(actorRepo.findAll()).thenReturn(list);
 //    when(actorRepo.save(any(Actor.class))).thenReturn(list.add(abbas));
 
     //when(actorRepo.save(any(Actor.class))).getMock();
@@ -98,12 +114,43 @@ System.out.println(actorRepo.findAll());
 
 @Test
     public void searchByNameActor(){
+    //Setup Mock Enviroment for actorRepo
+    List<Actor> list = new ArrayList<Actor>();
+    Actor actor1 = new Actor("John","Doe");
+    Actor actor2 = new Actor("Sarah","Smith");
+    actor1.setActor_id(0L);
+    actor2.setActor_id(1L);
+    list.add(actor1);
+    list.add(actor2);
+    when(actorRepo.findAll()).thenReturn(list);
+    List<Actor> expected = list;
+    List<Actor> actual = actorController.fetchActor();
+    // Actual & Expected
+    Long actualId1 = actorController.getActorInfo("John").getActor_id();
+    String actualFirstName1 = actorController.getActorInfo("John").getFirst_name();
+    String actualLastName = actorController.getActorInfo("John").getLast_name();
+    Long actualId2 = actorController.getActorInfo("Sarah").getActor_id();
+    String actualFirstName2 = actorController.getActorInfo("Sarah").getFirst_name();
+    String actualLastName2 = actorController.getActorInfo("Sarah").getLast_name();
 
-    Actor dummyActor = new Actor("John" , "Doe") ;
-    actorController.addActor(dummyActor.getFirst_name(),dummyActor.getLast_name());
-    ArgumentCaptor<Actor> actorArgumentCaptor = ArgumentCaptor.forClass(Actor.class);
-    verify(actorRepo).save(actorArgumentCaptor.capture());
+    Long expectedId1 = 0l;
+    Long expectedId2 = 1l;
+    String expectedFirstname1 = "John" ;
+    String expectedFirstname2 = "Sarah" ;
+    String expectedLastname1 = "Doe" ;
+    String expectedLastname2 = "Smith";
 
+    //Tests
+    Assertions.assertEquals(expectedId1,actualId1,"Johns Actual Id is not as expected");
+    Assertions.assertEquals(expectedId2,actualId2,"Sarah's Actual Id is not as expected");
+    Assertions.assertEquals(expectedFirstname1,actualFirstName1,"Johns Actual First Name is not as expected");
+    Assertions.assertEquals(expectedFirstname2,actualFirstName2,"Sarah's Actual Id is not as expected");
+    Assertions.assertEquals(expectedLastname1,actualLastName,"Johns Actual Last name is not as expected");
+    Assertions.assertEquals(expectedLastname2,actualLastName2,"Sarah's Actual Last Name is not as expected");
+
+
+    //Test
+    Assertions.assertEquals(1,1,"");
 
 
 }
