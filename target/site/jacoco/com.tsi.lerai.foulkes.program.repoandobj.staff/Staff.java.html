@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Staff.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MyFirstMicroservice</a> &gt; <a href="index.source.html" class="el_package">com.tsi.lerai.foulkes.program.repoandobj.staff</a> &gt; <span class="el_source">Staff.java</span></div><h1>Staff.java</h1><pre class="source lang-java linenums">package com.tsi.lerai.foulkes.program.repoandobj.staff;
+
+import javax.persistence.*;
+import java.sql.Blob;
+
+@Entity
+@Table(name = &quot;staff&quot;)
+public class Staff {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long staff_id  ;
+
+    //Attributes
+
+    private String first_name ;
+    private String last_name ;
+    private int address_id ;
+   // private Byte picture ;
+    private String email ;
+
+    //Empty Constructor
+<span class="fc" id="L22">    public Staff(){}</span>
+
+    public Long getStaff_id() {
+<span class="nc" id="L25">        return staff_id;</span>
+    }
+
+    public void setStaff_id(Long staff_id) {
+<span class="nc" id="L29">        this.staff_id = staff_id;</span>
+<span class="nc" id="L30">    }</span>
+
+    public String getFirst_name() {
+<span class="nc" id="L33">        return first_name;</span>
+    }
+
+    public void setFirst_name(String first_name) {
+<span class="nc" id="L37">        this.first_name = first_name;</span>
+<span class="nc" id="L38">    }</span>
+
+    public String getLast_name() {
+<span class="nc" id="L41">        return last_name;</span>
+    }
+
+    public void setLast_name(String last_name) {
+<span class="nc" id="L45">        this.last_name = last_name;</span>
+<span class="nc" id="L46">    }</span>
+
+    public int getAddress_id() {
+<span class="nc" id="L49">        return address_id;</span>
+    }
+
+    public void setAddress_id(int address_id) {
+<span class="nc" id="L53">        this.address_id = address_id;</span>
+<span class="nc" id="L54">    }</span>
+
+
+
+
+    public String getEmail() {
+<span class="nc" id="L60">        return email;</span>
+    }
+
+    public void setEmail(String email) {
+<span class="nc" id="L64">        this.email = email;</span>
+<span class="nc" id="L65">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Customer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MyFirstMicroservice</a> &gt; <a href="index.source.html" class="el_package">com.tsi.lerai.foulkes.program.repoandobj.customer</a> &gt; <span class="el_source">Customer.java</span></div><h1>Customer.java</h1><pre class="source lang-java linenums">package com.tsi.lerai.foulkes.program.repoandobj.customer;
+
+import javax.persistence.*;
+import java.time.LocalDate;
+
+@Entity
+@Table(name = &quot;customer&quot;)
+public class Customer {
+
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long customer_id  ;
+
+    //Attributes
+        private int  store_id ;
+        private String first_name;
+        private String last_name;
+        private String email ;
+        private int address_id;
+        private int active;
+        private LocalDate create_date ;
+        private LocalDate last_update;
+
+        //Constructor
+
+<span class="fc" id="L26">    public Customer() {}</span>
+
+    public Long getActor_id() {
+<span class="nc" id="L29">        return customer_id;</span>
+    }
+
+    public void setActor_id(Long actor_id) {
+<span class="nc" id="L33">        this.customer_id = actor_id;</span>
+<span class="nc" id="L34">    }</span>
+
+    public int getStore_id() {
+<span class="nc" id="L37">        return store_id;</span>
+    }
+
+    public void setStore_id(int store_id) {
+<span class="nc" id="L41">        this.store_id = store_id;</span>
+<span class="nc" id="L42">    }</span>
+
+    public String getFirst_name() {
+<span class="nc" id="L45">        return first_name;</span>
+    }
+
+    public void setFirst_name(String first_name) {
+<span class="nc" id="L49">        this.first_name = first_name;</span>
+<span class="nc" id="L50">    }</span>
+
+    public String getLast_name() {
+<span class="nc" id="L53">        return last_name;</span>
+    }
+
+    public void setLast_name(String last_name) {
+<span class="nc" id="L57">        this.last_name = last_name;</span>
+<span class="nc" id="L58">    }</span>
+
+    public String getEmail() {
+<span class="nc" id="L61">        return email;</span>
+    }
+
+    public void setEmail(String email) {
+<span class="nc" id="L65">        this.email = email;</span>
+<span class="nc" id="L66">    }</span>
+
+    public int getAddress_id() {
+<span class="nc" id="L69">        return address_id;</span>
+    }
+
+    public void setAddress_id(int address_id) {
+<span class="nc" id="L73">        this.address_id = address_id;</span>
+<span class="nc" id="L74">    }</span>
+
+    public int getActive() {
+<span class="nc" id="L77">        return active;</span>
+    }
+
+    public void setActive(int active) {
+<span class="nc" id="L81">        this.active = active;</span>
+<span class="nc" id="L82">    }</span>
+
+    public LocalDate getCreate_date() {
+<span class="nc" id="L85">        return create_date;</span>
+    }
+
+    public void setCreate_date(LocalDate create_date) {
+<span class="nc" id="L89">        this.create_date = create_date;</span>
+<span class="nc" id="L90">    }</span>
+
+    public LocalDate getLast_update() {
+<span class="nc" id="L93">        return last_update;</span>
+    }
+
+    public void setLast_update(LocalDate last_update) {
+<span class="nc" id="L97">        this.last_update = last_update;</span>
+<span class="nc" id="L98">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
