@@ -10,9 +10,12 @@ import com.tsi.lerai.foulkes.program.repoandobj.movies.MovieRepo;
 import com.tsi.lerai.foulkes.program.repoandobj.payment.PaymentRepo;
 import com.tsi.lerai.foulkes.program.repoandobj.staff.StaffRepo;
 import com.tsi.lerai.foulkes.program.repoandobj.store.StoreRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class CompleteRepo {
+    @Autowired
     private ActorRepo actorRepo ;
+    @Autowired
     private CategoryRepo categoryRepo ;
     private CustomerRepo customerRepo ;
     private FilmActorRepo filmActorRepo;

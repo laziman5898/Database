@@ -2,6 +2,8 @@ package com.tsi.lerai.foulkes.program.controller;
 
 import com.tsi.lerai.foulkes.program.controller.*;
 import com.tsi.lerai.foulkes.program.repoandobj.CompleteRepo;
+import com.tsi.lerai.foulkes.program.repoandobj.actor.Actor;
+import com.tsi.lerai.foulkes.program.repoandobj.actor.ActorRepo;
 import com.tsi.lerai.foulkes.program.repoandobj.filmactors.FilmActorRepo;
 import com.tsi.lerai.foulkes.program.repoandobj.filmcategorys.FilmCategoryRepo;
 import com.tsi.lerai.foulkes.program.repoandobj.inventory.InventoryRepo;
@@ -10,8 +12,13 @@ import com.tsi.lerai.foulkes.program.repoandobj.payment.Payment;
 import com.tsi.lerai.foulkes.program.repoandobj.payment.PaymentRepo;
 import com.tsi.lerai.foulkes.program.repoandobj.staff.StaffRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 public class CompleteController {
+    @Autowired
+    private ActorRepo actorRepo ;
     private CompleteRepo completeRepo = new CompleteRepo() ;
     private ActorController actorController;
     private CategoryController categoryController ;
@@ -118,4 +125,5 @@ public class CompleteController {
     public void setStoreController(StoreController storeController) {
         this.storeController = storeController;
     }
+
 }

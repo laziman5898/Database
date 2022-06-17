@@ -24,6 +24,8 @@ public class Movie {
     private String special_features ;
     private LocalDate last_update ;
 
+    private String category ;
+
     public Movie(String title, int length , String rating){
         this.title=title;
         this.length=length;
@@ -128,6 +130,14 @@ public class Movie {
 
     public void setLast_update(LocalDate last_update) {
         this.last_update = last_update;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }
 

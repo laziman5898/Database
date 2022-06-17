@@ -66,40 +66,32 @@ public void getAllActorEntries(){
 }
 @Test
   public void addActorTest(){
-//
-//    //Setup Mock actorRepo
-//    List<Actor> list = new ArrayList<Actor>();
-//    Actor actor = new Actor("John","Doe");
-//    actor.setActor_id(0L);
-//    list.add(actor);
-//    when(actorRepo.findAll()).thenReturn(list);
-//
-//
-//    when(actorRepo.save(any(Actor.class))).thenAnswer(answer);
-//    actorController.addActor(actor.getFirst_name(),actor.getLast_name());
-//
-//
-//    //Tests
-//
-//    Assertions.assertEquals(1,actorRepo.findAll(),"Item has not been added");
+    //Setup Mock for add Actor Test - Return an actor
+    Actor actor = new Actor("John","Doe");
+    when(actorRepo.save(any(Actor.class))).thenReturn(actor);
+    String actual = actorController.addActor(actor.getFirst_name(),actor.getLast_name());
+    String expected = "saved";
+
+    //Tests
+    Assertions.assertEquals(expected,actual,"The Function was unable to complete");
+
     }
 
 @Test
 public void deleteActorEntry(){
 
-//    when(actorRepo.save(any(Actor.class))).thenReturn(list.add(abbas));
+    //Setup
+    Long i = 10L ;
+    Actor actor = new Actor("John","Doe");
+    actor.setActor_id(0L);
 
-    //when(actorRepo.save(any(Actor.class))).getMock();
+//    doNothing().when(actorRepo.deleteById(anyLong())).th(null);
 
-//    when(actorRepo.save(Mockito.any(Actor.class))).(list.add(abbas));
+    String actual = actorController.deleteActorById(actor.getActor_id());
+    String expected = "Deleted Successfully";
 
-    System.out.println(actorRepo.findAll());
-    System.out.println(actorController.fetchActor());
-    //System.out.println(actorController.fetchActor().get(0).getActor_id());
-   // actorController.addActor(abbas.getFirst_name(),abbas.getLast_name());
-    //System.out.println(actorController.fetchActor());
-
-    Assertions.assertEquals(1,1,"lol");
+    //Tests
+    Assertions.assertEquals(expected,actual,"The function was unable to complete");
 
 }
 
