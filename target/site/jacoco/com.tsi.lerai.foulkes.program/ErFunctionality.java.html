@@ -2,6 +2,7 @@
 
 import com.tsi.lerai.foulkes.program.controller.CompleteController;
 import com.tsi.lerai.foulkes.program.repoandobj.actor.Actor;
+import com.tsi.lerai.foulkes.program.repoandobj.actor.ActorRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,16 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-<span class="fc" id="L12">public class ErFunctionality {</span>
+<span class="nc" id="L13">public class ErFunctionality {</span>
 
-<span class="fc" id="L14">    CompleteController completeController = new CompleteController();</span>
 
+<span class="nc" id="L16">      CompleteController completeController = new CompleteController();</span>
 
 
     @GetMapping(&quot;/test&quot;)
     private List&lt;Actor&gt; getAllActors() {
 
-<span class="nc" id="L21">       return completeController.getActorController().fetchActor();</span>
+<span class="nc" id="L22">       return completeController.getActorController().fetchActor();</span>
     }
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

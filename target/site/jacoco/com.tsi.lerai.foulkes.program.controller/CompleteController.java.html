@@ -2,6 +2,8 @@
 
 import com.tsi.lerai.foulkes.program.controller.*;
 import com.tsi.lerai.foulkes.program.repoandobj.CompleteRepo;
+import com.tsi.lerai.foulkes.program.repoandobj.actor.Actor;
+import com.tsi.lerai.foulkes.program.repoandobj.actor.ActorRepo;
 import com.tsi.lerai.foulkes.program.repoandobj.filmactors.FilmActorRepo;
 import com.tsi.lerai.foulkes.program.repoandobj.filmcategorys.FilmCategoryRepo;
 import com.tsi.lerai.foulkes.program.repoandobj.inventory.InventoryRepo;
@@ -10,12 +12,16 @@ import com.tsi.lerai.foulkes.program.repoandobj.payment.Payment;
 import com.tsi.lerai.foulkes.program.repoandobj.payment.PaymentRepo;
 import com.tsi.lerai.foulkes.program.repoandobj.staff.StaffRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+
+import java.util.List;
 
 public class CompleteController {
-<span class="fc" id="L15">    private CompleteRepo completeRepo = new CompleteRepo() ;</span>
+    @Autowired
+    private ActorRepo actorRepo ;
+<span class="nc" id="L22">    private CompleteRepo completeRepo = new CompleteRepo() ;</span>
     private ActorController actorController;
     private CategoryController categoryController ;
-    private CustomerController customerController;
     private FilmActorController filmActorController;
     private FilmCategoryController filmCategoryController ;
     private InventoryController inventoryController ;
@@ -24,99 +30,101 @@ public class CompleteController {
     private StaffController staffController ;
     private StoreController storeController ;
 
-<span class="fc" id="L27">    public CompleteController () {</span>
-<span class="fc" id="L28">       actorController = new ActorController(completeRepo.getActorRepo());</span>
-<span class="fc" id="L29">        categoryController= new CategoryController(completeRepo.getCategoryRepo());</span>
-<span class="fc" id="L30">        customerController= new CustomerController(completeRepo.getCustomerRepo());</span>
-<span class="fc" id="L31">        filmActorController = new FilmActorController(completeRepo.getFilmActorRepo());</span>
-<span class="fc" id="L32">        filmCategoryController = new FilmCategoryController(completeRepo.getFilmCategoryRepo());</span>
-<span class="fc" id="L33">        inventoryController = new InventoryController(completeRepo.getInventoryRepo());</span>
-<span class="fc" id="L34">        movieController = new MovieController(completeRepo.getMovieRepo());</span>
-<span class="fc" id="L35">        paymentController = new PaymentController(completeRepo.getPaymentRepo());</span>
-<span class="fc" id="L36">        staffController = new StaffController(completeRepo.getStaffRepo());</span>
-<span class="fc" id="L37">        staffController = new StaffController(completeRepo.getStaffRepo());</span>
+<span class="nc" id="L33">    public CompleteController () {</span>
+<span class="nc" id="L34">       actorController = new ActorController(completeRepo.getActorRepo());</span>
+<span class="nc" id="L35">        categoryController= new CategoryController(completeRepo.getCategoryRepo());</span>
+//        customerController= new CustomerController(completeRepo.getCustomerRepo());
+<span class="nc" id="L37">        filmActorController = new FilmActorController(completeRepo.getFilmActorRepo());</span>
+<span class="nc" id="L38">        filmCategoryController = new FilmCategoryController(completeRepo.getFilmCategoryRepo());</span>
+<span class="nc" id="L39">        inventoryController = new InventoryController(completeRepo.getInventoryRepo());</span>
+<span class="nc" id="L40">        movieController = new MovieController(completeRepo.getMovieRepo());</span>
+<span class="nc" id="L41">        paymentController = new PaymentController(completeRepo.getPaymentRepo());</span>
+<span class="nc" id="L42">        staffController = new StaffController(completeRepo.getStaffRepo());</span>
+<span class="nc" id="L43">        staffController = new StaffController(completeRepo.getStaffRepo());</span>
 
 
-<span class="fc" id="L40">    }</span>
+<span class="nc" id="L46">    }</span>
+
 
     public ActorController getActorController() {
-<span class="nc" id="L43">        return actorController;</span>
+<span class="nc" id="L50">        return actorController;</span>
     }
 
     public void setActorController(ActorController actorController) {
-<span class="nc" id="L47">        this.actorController = actorController;</span>
-<span class="nc" id="L48">    }</span>
+<span class="nc" id="L54">        this.actorController = actorController;</span>
+<span class="nc" id="L55">    }</span>
 
     public CategoryController getCategoryController() {
-<span class="nc" id="L51">        return categoryController;</span>
+<span class="nc" id="L58">        return categoryController;</span>
     }
 
     public void setCategoryController(CategoryController categoryController) {
-<span class="nc" id="L55">        this.categoryController = categoryController;</span>
-<span class="nc" id="L56">    }</span>
+<span class="nc" id="L62">        this.categoryController = categoryController;</span>
+<span class="nc" id="L63">    }</span>
 
-    public CustomerController getCustomerController() {
-<span class="nc" id="L59">        return customerController;</span>
-    }
+//    public CustomerController getCustomerController() {
+//        return customerController;
+//    }
 
-    public void setCustomerController(CustomerController customerController) {
-<span class="nc" id="L63">        this.customerController = customerController;</span>
-<span class="nc" id="L64">    }</span>
+//    public void setCustomerController(CustomerController customerController) {
+//        this.customerController = customerController;
+//    }
 
     public FilmActorController getFilmActorController() {
-<span class="nc" id="L67">        return filmActorController;</span>
+<span class="nc" id="L74">        return filmActorController;</span>
     }
 
     public void setFilmActorController(FilmActorController filmActorController) {
-<span class="nc" id="L71">        this.filmActorController = filmActorController;</span>
-<span class="nc" id="L72">    }</span>
+<span class="nc" id="L78">        this.filmActorController = filmActorController;</span>
+<span class="nc" id="L79">    }</span>
 
     public FilmCategoryController getFilmCategoryController() {
-<span class="nc" id="L75">        return filmCategoryController;</span>
+<span class="nc" id="L82">        return filmCategoryController;</span>
     }
 
     public void setFilmCategoryController(FilmCategoryController filmCategoryController) {
-<span class="nc" id="L79">        this.filmCategoryController = filmCategoryController;</span>
-<span class="nc" id="L80">    }</span>
+<span class="nc" id="L86">        this.filmCategoryController = filmCategoryController;</span>
+<span class="nc" id="L87">    }</span>
 
     public InventoryController getInventoryController() {
-<span class="nc" id="L83">        return inventoryController;</span>
+<span class="nc" id="L90">        return inventoryController;</span>
     }
 
     public void setInventoryController(InventoryController inventoryController) {
-<span class="nc" id="L87">        this.inventoryController = inventoryController;</span>
-<span class="nc" id="L88">    }</span>
+<span class="nc" id="L94">        this.inventoryController = inventoryController;</span>
+<span class="nc" id="L95">    }</span>
 
     public MovieController getMovieController() {
-<span class="nc" id="L91">        return movieController;</span>
+<span class="nc" id="L98">        return movieController;</span>
     }
 
     public void setMovieController(MovieController movieController) {
-<span class="nc" id="L95">        this.movieController = movieController;</span>
-<span class="nc" id="L96">    }</span>
+<span class="nc" id="L102">        this.movieController = movieController;</span>
+<span class="nc" id="L103">    }</span>
 
     public PaymentController getPaymentController() {
-<span class="nc" id="L99">        return paymentController;</span>
+<span class="nc" id="L106">        return paymentController;</span>
     }
 
     public void setPaymentController(PaymentController paymentController) {
-<span class="nc" id="L103">        this.paymentController = paymentController;</span>
-<span class="nc" id="L104">    }</span>
+<span class="nc" id="L110">        this.paymentController = paymentController;</span>
+<span class="nc" id="L111">    }</span>
 
     public StaffController getStaffController() {
-<span class="nc" id="L107">        return staffController;</span>
+<span class="nc" id="L114">        return staffController;</span>
     }
 
     public void setStaffController(StaffController staffController) {
-<span class="nc" id="L111">        this.staffController = staffController;</span>
-<span class="nc" id="L112">    }</span>
+<span class="nc" id="L118">        this.staffController = staffController;</span>
+<span class="nc" id="L119">    }</span>
 
     public StoreController getStoreController() {
-<span class="nc" id="L115">        return storeController;</span>
+<span class="nc" id="L122">        return storeController;</span>
     }
 
     public void setStoreController(StoreController storeController) {
-<span class="nc" id="L119">        this.storeController = storeController;</span>
-<span class="nc" id="L120">    }</span>
+<span class="nc" id="L126">        this.storeController = storeController;</span>
+<span class="nc" id="L127">    }</span>
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

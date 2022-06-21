@@ -22,7 +22,6 @@ public class CompleteController {
     private CompleteRepo completeRepo = new CompleteRepo() ;
     private ActorController actorController;
     private CategoryController categoryController ;
-    private CustomerController customerController;
     private FilmActorController filmActorController;
     private FilmCategoryController filmCategoryController ;
     private InventoryController inventoryController ;
@@ -34,7 +33,7 @@ public class CompleteController {
     public CompleteController () {
        actorController = new ActorController(completeRepo.getActorRepo());
         categoryController= new CategoryController(completeRepo.getCategoryRepo());
-        customerController= new CustomerController(completeRepo.getCustomerRepo());
+//        customerController= new CustomerController(completeRepo.getCustomerRepo());
         filmActorController = new FilmActorController(completeRepo.getFilmActorRepo());
         filmCategoryController = new FilmCategoryController(completeRepo.getFilmCategoryRepo());
         inventoryController = new InventoryController(completeRepo.getInventoryRepo());
@@ -45,6 +44,7 @@ public class CompleteController {
 
 
     }
+
 
     public ActorController getActorController() {
         return actorController;
@@ -62,13 +62,13 @@ public class CompleteController {
         this.categoryController = categoryController;
     }
 
-    public CustomerController getCustomerController() {
-        return customerController;
-    }
+//    public CustomerController getCustomerController() {
+//        return customerController;
+//    }
 
-    public void setCustomerController(CustomerController customerController) {
-        this.customerController = customerController;
-    }
+//    public void setCustomerController(CustomerController customerController) {
+//        this.customerController = customerController;
+//    }
 
     public FilmActorController getFilmActorController() {
         return filmActorController;

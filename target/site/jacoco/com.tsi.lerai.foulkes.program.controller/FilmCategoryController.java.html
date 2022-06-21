@@ -2,6 +2,7 @@
 
 import com.tsi.lerai.foulkes.program.repoandobj.filmcategorys.FilmCategory;
 import com.tsi.lerai.foulkes.program.repoandobj.filmcategorys.FilmCategoryRepo;
+import com.tsi.lerai.foulkes.program.repoandobj.movies.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,13 +12,16 @@ import java.util.List;
 @RestController
 public class FilmCategoryController {
 
+
+
     @Autowired private FilmCategoryRepo filmCategoryRepo;
 
-<span class="fc" id="L16">    public FilmCategoryController (FilmCategoryRepo filmCategoryRepo){this.filmCategoryRepo= filmCategoryRepo;}</span>
+<span class="nc" id="L19">    public FilmCategoryController (FilmCategoryRepo filmCategoryRepo){this.filmCategoryRepo= filmCategoryRepo;}</span>
 
     @GetMapping(&quot;/filmcategorys&quot;)
     public List&lt;FilmCategory&gt; getFilmCategorys() {
-<span class="nc" id="L20">        return (List&lt;FilmCategory&gt;) filmCategoryRepo.findAll();</span>
+<span class="nc" id="L23">        return (List&lt;FilmCategory&gt;) filmCategoryRepo.findAll();</span>
     }
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

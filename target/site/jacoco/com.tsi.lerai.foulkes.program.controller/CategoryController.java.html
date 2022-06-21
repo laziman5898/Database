@@ -2,8 +2,10 @@
 
 import com.tsi.lerai.foulkes.program.repoandobj.category.Category;
 import com.tsi.lerai.foulkes.program.repoandobj.category.CategoryRepo;
+import com.tsi.lerai.foulkes.program.repoandobj.movies.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -14,12 +16,20 @@ public class CategoryController {
     @Autowired
     private CategoryRepo categoryRepo;
 
-<span class="fc" id="L17">    public CategoryController(CategoryRepo categoryRepo){this.categoryRepo=categoryRepo;}</span>
+<span class="nc" id="L19">    public CategoryController(CategoryRepo categoryRepo){this.categoryRepo=categoryRepo;}</span>
 
     //Read operation
     @GetMapping(&quot;/category&quot;)
     public List&lt;Category&gt; customerFetchAll() {
-<span class="nc" id="L22">        return (List&lt;Category&gt;) categoryRepo.findAll();</span>
+<span class="nc" id="L24">        return (List&lt;Category&gt;) categoryRepo.findAll();</span>
     }
+
+    @GetMapping(&quot;/categoryById&quot;)
+    public String getIdToString (@RequestParam Long category_id){
+<span class="nc" id="L29">        Category category = categoryRepo.findById(category_id).get();</span>
+<span class="nc" id="L30">        return category.getName() ;</span>
+    }
+
+
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

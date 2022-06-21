@@ -49,8 +49,8 @@ public class ActorController {
     //Delete Operation
     @DeleteMapping(&quot;/actors&quot;)
     public @ResponseBody String deleteActorById(@RequestParam Long actorId ){
-<span class="nc" id="L52">        actorRepo.deleteById((actorId)) ;</span>
-<span class="nc" id="L53">        return &quot;Deleted Successfully&quot;;</span>
+<span class="fc" id="L52">        actorRepo.deleteById((actorId)) ;</span>
+<span class="fc" id="L53">        return &quot;Deleted Successfully&quot;;</span>
     }
     @GetMapping(&quot;/actors/IdExist&quot;)
     public @ResponseBody Boolean idExists(@RequestParam Long actorId){
@@ -61,15 +61,15 @@ public class ActorController {
 
 @GetMapping(&quot;/actors/FirstNameSearch&quot;)
     public @ResponseBody Actor getActorInfo(@RequestParam String first_name){
-<span class="nc" id="L64">       List&lt;Actor&gt; actors = fetchActor();</span>
-<span class="nc" id="L65">       Actor foundActor = new Actor();</span>
-<span class="nc bnc" id="L66" title="All 2 branches missed.">    for(int i =0 ; i &lt;actors.size(); i++){</span>
-<span class="nc" id="L67">           Actor currentActor = actors.get(i);</span>
-<span class="nc bnc" id="L68" title="All 2 branches missed.">           if(currentActor.getFirst_name().contains(first_name) ){</span>
-<span class="nc" id="L69">               foundActor = currentActor ;</span>
+<span class="fc" id="L64">       List&lt;Actor&gt; actors = fetchActor();</span>
+<span class="fc" id="L65">       Actor foundActor = new Actor();</span>
+<span class="fc bfc" id="L66" title="All 2 branches covered.">    for(int i =0 ; i &lt;actors.size(); i++){</span>
+<span class="fc" id="L67">           Actor currentActor = actors.get(i);</span>
+<span class="fc bfc" id="L68" title="All 2 branches covered.">           if(currentActor.getFirst_name().contains(first_name) ){</span>
+<span class="fc" id="L69">               foundActor = currentActor ;</span>
            }
        }
-<span class="nc" id="L72">     return foundActor ;</span>
+<span class="fc" id="L72">     return foundActor ;</span>
 }
 
 }

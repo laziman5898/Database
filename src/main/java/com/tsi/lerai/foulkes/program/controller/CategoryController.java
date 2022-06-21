@@ -16,6 +16,7 @@ public class CategoryController {
     @Autowired
     private CategoryRepo categoryRepo;
 
+
     public CategoryController(CategoryRepo categoryRepo){this.categoryRepo=categoryRepo;}
 
     //Read operation

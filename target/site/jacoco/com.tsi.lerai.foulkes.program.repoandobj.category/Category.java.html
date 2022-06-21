@@ -8,7 +8,7 @@ public class Category {
 
     @Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    private Long actor_id  ;
+    private Long category_id  ;
 
     //Attribute
     private String name ;
@@ -18,14 +18,14 @@ public class Category {
 
 <span class="nc" id="L19">    }</span>
 
-<span class="fc" id="L21">    public Category() {}</span>
+<span class="nc" id="L21">    public Category() {}</span>
 
     public Long getActor_id() {
-<span class="nc" id="L24">        return actor_id;</span>
+<span class="nc" id="L24">        return category_id;</span>
     }
 
     public void setActor_id(Long actor_id) {
-<span class="nc" id="L28">        this.actor_id = actor_id;</span>
+<span class="nc" id="L28">        this.category_id = actor_id;</span>
 <span class="nc" id="L29">    }</span>
 
     public String getName() {

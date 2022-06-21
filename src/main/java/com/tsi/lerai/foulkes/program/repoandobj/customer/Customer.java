@@ -15,14 +15,24 @@ public class Customer {
         private int  store_id ;
         private String first_name;
         private String last_name;
-        private String email ;
+        private String email;
         private int address_id;
         private int active;
         private LocalDate create_date ;
         private LocalDate last_update;
+        private String password ;
+        private int actor_id ;
+
+        public Customer(String first_name , String last_name , String email , String password , int store_id , int address_id , int actor_id  ){
+            this.first_name=first_name;
+            this.last_name=last_name;
+            this.email = email;
+            this.store_id=store_id;
+            this.address_id = address_id ;
+            this.actor_id = actor_id;
+        }
 
         //Constructor
-
     public Customer() {}
 
     public Long getActor_id() {
@@ -95,5 +105,21 @@ public class Customer {
 
     public void setLast_update(LocalDate last_update) {
         this.last_update = last_update;
+    }
+
+    public Long getCustomer_id() {
+        return customer_id;
+    }
+
+    public void setCustomer_id(Long customer_id) {
+        this.customer_id = customer_id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

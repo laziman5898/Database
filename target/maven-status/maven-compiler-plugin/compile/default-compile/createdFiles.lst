@@ -31,4 +31,3 @@ com\tsi\lerai\foulkes\program\repoandobj\filmactors\FilmActor.class
 com\tsi\lerai\foulkes\program\repoandobj\payment\PaymentRepo.class
 com\tsi\lerai\foulkes\program\repoandobj\store\Store.class
 com\tsi\lerai\foulkes\program\repoandobj\customer\CustomerRepo.class
-com\tsi\lerai\foulkes\program\controller\CustomerController.class

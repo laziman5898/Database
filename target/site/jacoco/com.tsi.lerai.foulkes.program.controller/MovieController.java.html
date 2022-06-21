@@ -1,27 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MovieController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">MyFirstMicroservice</a> &gt; <a href="index.source.html" class="el_package">com.tsi.lerai.foulkes.program.controller</a> &gt; <span class="el_source">MovieController.java</span></div><h1>MovieController.java</h1><pre class="source lang-java linenums">package com.tsi.lerai.foulkes.program.controller;
 
+import com.tsi.lerai.foulkes.program.repoandobj.actor.Actor;
 import com.tsi.lerai.foulkes.program.repoandobj.movies.Movie;
 import com.tsi.lerai.foulkes.program.repoandobj.movies.MovieRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 public class MovieController {
 
     @Autowired private MovieRepo movieRepo ;
 
-<span class="fc" id="L16">    public MovieController (MovieRepo movieRepo) {this.movieRepo = movieRepo ; }</span>
+<span class="nc" id="L17">    public MovieController (MovieRepo movieRepo) {this.movieRepo = movieRepo ; }</span>
 
     //Return
     @GetMapping(&quot;/films&quot;)
-    public List&lt;Movie&gt; fetchActor() {
-<span class="nc" id="L21">        return (List&lt;Movie&gt;) movieRepo.findAll();</span>
+    public List&lt;Movie&gt; fetchMovies() {
+<span class="nc" id="L22">        return (List&lt;Movie&gt;) movieRepo.findAll();</span>
     }
 
-
+    @GetMapping(&quot;/filmsbyid&quot;)
+    public String getFilmIdToString (@RequestParam Long film_id){
+        Movie currentMovie;
+<span class="nc" id="L28">        currentMovie = movieRepo.findById(film_id).get();</span>
+<span class="nc" id="L29">       return currentMovie.getTitle() ;</span>
+    }
+    @GetMapping(&quot;/films/SearchByName&quot;)
+    public @ResponseBody Movie getFilmInfo(@RequestParam String title){
+<span class="nc" id="L33">        List&lt;Movie&gt; movies = fetchMovies();</span>
+<span class="nc" id="L34">        Movie foundMovie = new Movie();</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        for(int i =0 ; i &lt;movies.size(); i++){</span>
+<span class="nc" id="L36">            Movie currentMovie = movies.get(i);</span>
+<span class="nc bnc" id="L37" title="All 2 branches missed.">            if(currentMovie.getTitle().contains(title) ){</span>
+<span class="nc" id="L38">                foundMovie = currentMovie ;</span>
+            }
+        }
+<span class="nc" id="L41">        return foundMovie ;</span>
+    }
 
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

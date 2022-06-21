@@ -2,6 +2,7 @@ package com.tsi.lerai.foulkes.program;
 
 import com.tsi.lerai.foulkes.program.repoandobj.actor.Actor;
 import com.tsi.lerai.foulkes.program.repoandobj.actor.ActorRepo;
+import com.tsi.lerai.foulkes.program.repoandobj.movies.MovieRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -16,8 +17,9 @@ public class MyFirstMicroserviceApplication {
 
 	@Autowired
 	private ActorRepo actorRepo;
-	public MyFirstMicroserviceApplication(ActorRepo actorRepo) {
-		this.actorRepo = actorRepo;
+	@Autowired
+	private MovieRepo movieRepo;
+	public MyFirstMicroserviceApplication() {
 	}
 
 	public static void main(String[] args) {

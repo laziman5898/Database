@@ -10,9 +10,12 @@ import com.tsi.lerai.foulkes.program.repoandobj.movies.MovieRepo;
 import com.tsi.lerai.foulkes.program.repoandobj.payment.PaymentRepo;
 import com.tsi.lerai.foulkes.program.repoandobj.staff.StaffRepo;
 import com.tsi.lerai.foulkes.program.repoandobj.store.StoreRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 
 public class CompleteRepo {
+    @Autowired
     private ActorRepo actorRepo ;
+    @Autowired
     private CategoryRepo categoryRepo ;
     private CustomerRepo customerRepo ;
     private FilmActorRepo filmActorRepo;
@@ -23,86 +26,86 @@ public class CompleteRepo {
     private StaffRepo staffRepo ;
     private StoreRepo storeRepo ;
 
-<span class="fc" id="L26">    public CompleteRepo (){}</span>
+<span class="nc" id="L29">    public CompleteRepo (){}</span>
 
     public ActorRepo getActorRepo() {
-<span class="fc" id="L29">        return actorRepo;</span>
+<span class="nc" id="L32">        return actorRepo;</span>
     }
 
     public void setActorRepo(ActorRepo actorRepo) {
-<span class="nc" id="L33">        this.actorRepo = actorRepo;</span>
-<span class="nc" id="L34">    }</span>
+<span class="nc" id="L36">        this.actorRepo = actorRepo;</span>
+<span class="nc" id="L37">    }</span>
 
     public CategoryRepo getCategoryRepo() {
-<span class="fc" id="L37">        return categoryRepo;</span>
+<span class="nc" id="L40">        return categoryRepo;</span>
     }
 
     public void setCategoryRepo(CategoryRepo categoryRepo) {
-<span class="nc" id="L41">        this.categoryRepo = categoryRepo;</span>
-<span class="nc" id="L42">    }</span>
+<span class="nc" id="L44">        this.categoryRepo = categoryRepo;</span>
+<span class="nc" id="L45">    }</span>
 
     public CustomerRepo getCustomerRepo() {
-<span class="fc" id="L45">        return customerRepo;</span>
+<span class="nc" id="L48">        return customerRepo;</span>
     }
 
     public void setCustomerRepo(CustomerRepo customerRepo) {
-<span class="nc" id="L49">        this.customerRepo = customerRepo;</span>
-<span class="nc" id="L50">    }</span>
+<span class="nc" id="L52">        this.customerRepo = customerRepo;</span>
+<span class="nc" id="L53">    }</span>
 
     public FilmActorRepo getFilmActorRepo() {
-<span class="fc" id="L53">        return filmActorRepo;</span>
+<span class="nc" id="L56">        return filmActorRepo;</span>
     }
 
     public void setFilmActorRepo(FilmActorRepo filmActorRepo) {
-<span class="nc" id="L57">        this.filmActorRepo = filmActorRepo;</span>
-<span class="nc" id="L58">    }</span>
+<span class="nc" id="L60">        this.filmActorRepo = filmActorRepo;</span>
+<span class="nc" id="L61">    }</span>
 
     public FilmCategoryRepo getFilmCategoryRepo() {
-<span class="fc" id="L61">        return filmCategoryRepo;</span>
+<span class="nc" id="L64">        return filmCategoryRepo;</span>
     }
 
     public void setFilmCategoryRepo(FilmCategoryRepo filmCategoryRepo) {
-<span class="nc" id="L65">        this.filmCategoryRepo = filmCategoryRepo;</span>
-<span class="nc" id="L66">    }</span>
+<span class="nc" id="L68">        this.filmCategoryRepo = filmCategoryRepo;</span>
+<span class="nc" id="L69">    }</span>
 
     public InventoryRepo getInventoryRepo() {
-<span class="fc" id="L69">        return inventoryRepo;</span>
+<span class="nc" id="L72">        return inventoryRepo;</span>
     }
 
     public void setInventoryRepo(InventoryRepo inventoryRepo) {
-<span class="nc" id="L73">        this.inventoryRepo = inventoryRepo;</span>
-<span class="nc" id="L74">    }</span>
+<span class="nc" id="L76">        this.inventoryRepo = inventoryRepo;</span>
+<span class="nc" id="L77">    }</span>
 
     public MovieRepo getMovieRepo() {
-<span class="fc" id="L77">        return movieRepo;</span>
+<span class="nc" id="L80">        return movieRepo;</span>
     }
 
     public void setMovieRepo(MovieRepo movieRepo) {
-<span class="nc" id="L81">        this.movieRepo = movieRepo;</span>
-<span class="nc" id="L82">    }</span>
+<span class="nc" id="L84">        this.movieRepo = movieRepo;</span>
+<span class="nc" id="L85">    }</span>
 
     public PaymentRepo getPaymentRepo() {
-<span class="fc" id="L85">        return paymentRepo;</span>
+<span class="nc" id="L88">        return paymentRepo;</span>
     }
 
     public void setPaymentRepo(PaymentRepo paymentRepo) {
-<span class="nc" id="L89">        this.paymentRepo = paymentRepo;</span>
-<span class="nc" id="L90">    }</span>
+<span class="nc" id="L92">        this.paymentRepo = paymentRepo;</span>
+<span class="nc" id="L93">    }</span>
 
     public StaffRepo getStaffRepo() {
-<span class="fc" id="L93">        return staffRepo;</span>
+<span class="nc" id="L96">        return staffRepo;</span>
     }
 
     public void setStaffRepo(StaffRepo staffRepo) {
-<span class="nc" id="L97">        this.staffRepo = staffRepo;</span>
-<span class="nc" id="L98">    }</span>
+<span class="nc" id="L100">        this.staffRepo = staffRepo;</span>
+<span class="nc" id="L101">    }</span>
 
     public StoreRepo getStoreRepo() {
-<span class="nc" id="L101">        return storeRepo;</span>
+<span class="nc" id="L104">        return storeRepo;</span>
     }
 
     public void setStoreRepo(StoreRepo storeRepo) {
-<span class="nc" id="L105">        this.storeRepo = storeRepo;</span>
-<span class="nc" id="L106">    }</span>
+<span class="nc" id="L108">        this.storeRepo = storeRepo;</span>
+<span class="nc" id="L109">    }</span>
 }
 </pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

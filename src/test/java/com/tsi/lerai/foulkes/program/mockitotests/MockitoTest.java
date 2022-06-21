@@ -1,6 +1,7 @@
-package com.tsi.lerai.foulkes.program;
+package com.tsi.lerai.foulkes.program.mockitotests;
 
 
+import com.tsi.lerai.foulkes.program.MyFirstMicroserviceApplication;
 import com.tsi.lerai.foulkes.program.repoandobj.actor.Actor;
 import com.tsi.lerai.foulkes.program.repoandobj.actor.ActorRepo;
 import com.tsi.lerai.foulkes.program.controller.ActorController;
@@ -24,23 +25,16 @@ import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
 public class MockitoTest {
-
     private MyFirstMicroserviceApplication myFirstMicroserviceApplication ;
     @MockBean
     private ActorRepo actorRepo;
     @InjectMocks
     ActorController actorController ;
-
-
 @BeforeEach
     void setup(){
     actorRepo = mock(ActorRepo.class);
-    ArgumentCaptor<Actor> actorArgumentCaptor = ArgumentCaptor.forClass(Actor.class);
-     myFirstMicroserviceApplication = new MyFirstMicroserviceApplication(actorRepo);
+     myFirstMicroserviceApplication = new MyFirstMicroserviceApplication();
     actorController=new ActorController(actorRepo);
-
-
-
 }
 
 @Test
@@ -61,8 +55,6 @@ public void getAllActorEntries(){
     Assertions.assertEquals("John" , actorController.fetchActor().get(0).getFirst_name(), "Actor name is  not John");
     Assertions.assertEquals("Doe" , actorController.fetchActor().get(0).getLast_name(), "Actor Last name is not Doe");
     Assertions.assertEquals(1,actorController.fetchActor().size(),"All actors were not fetched");
-
-
 }
 @Test
   public void addActorTest(){
@@ -71,28 +63,16 @@ public void getAllActorEntries(){
     when(actorRepo.save(any(Actor.class))).thenReturn(actor);
     String actual = actorController.addActor(actor.getFirst_name(),actor.getLast_name());
     String expected = "saved";
-
     //Tests
     Assertions.assertEquals(expected,actual,"The Function was unable to complete");
-
     }
 
 @Test
 public void deleteActorEntry(){
-
-    //Setup
-    Long i = 10L ;
-    Actor actor = new Actor("John","Doe");
-    actor.setActor_id(0L);
-
-//    doNothing().when(actorRepo.deleteById(anyLong())).th(null);
-
-    String actual = actorController.deleteActorById(actor.getActor_id());
-    String expected = "Deleted Successfully";
-
-    //Tests
-    Assertions.assertEquals(expected,actual,"The function was unable to complete");
-
+String expected = "Deleted Successfully" ;
+String actual = actorController.deleteActorById(0L);
+verify(actorRepo).deleteById(0L);
+Assertions.assertEquals(expected,actual,"Function did not run");
 }
 
 //@Test
@@ -139,17 +119,19 @@ public void deleteActorEntry(){
     Assertions.assertEquals(expectedFirstname2,actualFirstName2,"Sarah's Actual Id is not as expected");
     Assertions.assertEquals(expectedLastname1,actualLastName,"Johns Actual Last name is not as expected");
     Assertions.assertEquals(expectedLastname2,actualLastName2,"Sarah's Actual Last Name is not as expected");
+    }
+    @Test
+    public void updateActorEntry() {
+    Actor testActor = new Actor("James" , "Smith" ) ;
+    testActor.setActor_id(0L);
+    Actor overwrittenActor = new Actor("Ryan" , "Turtea" ) ;
+    testActor.setActor_id(0L);
 
+    when(actorRepo.findById(testActor.getActor_id())).thenReturn(Optional.of(testActor)) ;
+    when(actorRepo.save(testActor)).thenReturn(testActor,testActor);
 
-    //Test
-    Assertions.assertEquals(1,1,"");
-
-
+    String expected = "Updated Successfully" ;
+    String actual = actorController.updateActor(testActor.getActor_id() , overwrittenActor.getFirst_name() , overwrittenActor.getLast_name()) ;
+    Assertions.assertEquals(expected , actual , "The method was not successfully run");
 }
-////@Test
-//    public void updateActorEntry() {
-//    String actual = actorController.updateActor(1L,"CHARLOTTE","HARRIS");
-//    Assertions.assertEquals("Updated Successfully", actual , "The function did not complete");
-//
-//}
 }
