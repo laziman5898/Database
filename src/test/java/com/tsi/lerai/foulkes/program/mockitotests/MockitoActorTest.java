@@ -43,7 +43,6 @@ public void getAllActorEntries(){
     when(actorRepo.findAll()).thenReturn(list);
     List<Actor> expected = list;
     List<Actor> actual = actorController.fetchActor();
-
     //Tests
     verify(actorRepo).findAll();
     Assertions.assertEquals(list ,actual , "A list is not returned");

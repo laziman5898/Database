@@ -17,6 +17,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -45,10 +46,19 @@ public class MockitoCategoryTest {
         dummyCategory.setActor_id(0L);
         list.add(dummyCategory);
         when(categoryRepo.findAll()).thenReturn(list);
-
         List<Category> expected = list;
         List<Category> actual = categoryController.categoryFetchAll();
         Assertions.assertEquals(expected,actual,"Values are not the same");
+    }
 
+    @Test
+    public void getIdToString() {
+        Category dummyCategory = new Category("Shoot-em-up" ) ;
+        dummyCategory.setActor_id(0L);
+
+        when(categoryRepo.findById(dummyCategory.getActor_id())).thenReturn(Optional.of(dummyCategory)) ;
+        String expected = dummyCategory.getName();
+        String actual = categoryController.getIdToString(dummyCategory.getActor_id());
+    Assertions.assertEquals(expected,actual,"The method was not executed ");
     }
 }
