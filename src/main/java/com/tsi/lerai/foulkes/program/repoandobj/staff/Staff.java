@@ -21,6 +21,13 @@ public class Staff {
     //Empty Constructor
     public Staff(){}
 
+    public Staff(String first_name, String last_name, int address_id, String email) {
+        this.first_name = first_name;
+        this.last_name = last_name;
+        this.address_id = address_id;
+        this.email = email;
+    }
+
     public Long getStaff_id() {
         return staff_id;
     }

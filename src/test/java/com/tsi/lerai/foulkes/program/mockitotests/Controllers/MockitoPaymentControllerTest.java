@@ -15,6 +15,7 @@ import org.mockito.InjectMocks;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class MockitoPaymentControllerTest {
     public void getAllPaymentInfo(){
         //Setup Mock Enviroment for actorRepo
         List<Payment> list = new ArrayList<Payment>();
-        Payment dummyPayment = new Payment() ;
+        Payment dummyPayment = new Payment(24L,5, 5, 24L, 23, LocalDate.of(2020,12,21)) ;
         list.add(dummyPayment);
         when(paymentRepo.findAll()).thenReturn(list);
         List<Payment> expected = list;
