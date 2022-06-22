@@ -74,22 +74,17 @@ public class MockitoFilmTest {
         movie2.setFilm_id(1L);
         movieList.add(movie1);
         movieList.add(movie2);
-
         Long selectedIdLong = 1L ;
-
         //Setup Behaviour
         when(movieRepo.findById(selectedIdLong)).thenReturn(Optional.of(movie2));
-
         String expected = movie2.getTitle();
         String actual = movieController.getFilmIdToString(selectedIdLong) ;
-
         Assertions.assertEquals(expected,actual, "The title is not the same");
 
     }
-
     @Test
     public void getFilmTitleTest() {
-        //Setup Mock Enviroment for MovieRepo
+        //Setup Mock Envniroment for MovieRepo
         List<Movie> movieList = new ArrayList<Movie>();
         Movie movie1 = new Movie("John Wick" ,123 , "PG");
         Movie movie2 = new Movie("Batman" ,210 , "18");

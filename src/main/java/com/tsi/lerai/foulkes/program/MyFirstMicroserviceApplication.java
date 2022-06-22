@@ -25,6 +25,4 @@ public class MyFirstMicroserviceApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(MyFirstMicroserviceApplication.class, args);
 	}
-
-
 }

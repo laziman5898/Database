@@ -9,13 +9,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
 import org.mockito.*;
-import org.mockito.invocation.InvocationOnMock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.mockito.stubbing.Answer;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +20,7 @@ import java.util.Optional;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class MockitoTest {
+public class MockitoActorTest {
     private MyFirstMicroserviceApplication myFirstMicroserviceApplication ;
     @MockBean
     private ActorRepo actorRepo;
@@ -75,14 +71,6 @@ verify(actorRepo).deleteById(0L);
 Assertions.assertEquals(expected,actual,"Function did not run");
 }
 
-//@Test
-//    public void actorContains(){
-//    Actor dummyActor = new Actor("John" , "Doe") ;
-//    String actual = actorController.addActor(dummyActor.getFirst_name(),dummyActor.getLast_name());
-//    ArgumentCaptor<Actor> actorArgumentCaptor = ArgumentCaptor.forClass(Actor.class);
-//    verify(actorRepo).save(actorArgumentCaptor.capture());
-//    Assertions.assertEquals(true, actorController.idExists(1L), "Does not work " );
-//}
 
 @Test
     public void searchByNameActor(){
@@ -133,5 +121,15 @@ Assertions.assertEquals(expected,actual,"Function did not run");
     String expected = "Updated Successfully" ;
     String actual = actorController.updateActor(testActor.getActor_id() , overwrittenActor.getFirst_name() , overwrittenActor.getLast_name()) ;
     Assertions.assertEquals(expected , actual , "The method was not successfully run");
+}
+
+@Test
+    public void idExistsTest(){
+    Actor testActor = new Actor("Fake","Actor");
+    testActor.setActor_id(0L);
+    when(actorRepo.existsById(testActor.getActor_id())).thenReturn(true) ;
+    boolean expected = true ;
+    boolean actual = actorController.idExists(testActor.getActor_id());
+    Assertions.assertEquals(expected,actual,"The results does not match");
 }
 }

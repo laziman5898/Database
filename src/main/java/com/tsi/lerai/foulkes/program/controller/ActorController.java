@@ -16,8 +16,6 @@ import java.util.Objects;
 public class ActorController {
 
    @Autowired private ActorRepo actorRepo ;
-
-
    public ActorController(ActorRepo actorRepo){this.actorRepo=actorRepo ;}
 
     //saveOperation

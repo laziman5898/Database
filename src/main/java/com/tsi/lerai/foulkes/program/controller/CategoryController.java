@@ -21,7 +21,7 @@ public class CategoryController {
 
     //Read operation
     @GetMapping("/category")
-    public List<Category> customerFetchAll() {
+    public List<Category> categoryFetchAll() {
         return (List<Category>) categoryRepo.findAll();
     }
 
