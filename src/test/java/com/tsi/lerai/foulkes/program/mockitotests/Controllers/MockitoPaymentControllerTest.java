@@ -1,12 +1,12 @@
-package com.tsi.lerai.foulkes.program.mockitotests;
+package com.tsi.lerai.foulkes.program.mockitotests.Controllers;
 
 import com.tsi.lerai.foulkes.program.MyFirstMicroserviceApplication;
 import com.tsi.lerai.foulkes.program.controller.ActorController;
-import com.tsi.lerai.foulkes.program.controller.FilmCategoryController;
+import com.tsi.lerai.foulkes.program.controller.PaymentController;
 import com.tsi.lerai.foulkes.program.repoandobj.actor.Actor;
 import com.tsi.lerai.foulkes.program.repoandobj.actor.ActorRepo;
-import com.tsi.lerai.foulkes.program.repoandobj.filmcategorys.FilmCategory;
-import com.tsi.lerai.foulkes.program.repoandobj.filmcategorys.FilmCategoryRepo;
+import com.tsi.lerai.foulkes.program.repoandobj.payment.Payment;
+import com.tsi.lerai.foulkes.program.repoandobj.payment.PaymentRepo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,32 +21,31 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class MockitoFilmCategoryTest {
+public class MockitoPaymentControllerTest {
 
     private MyFirstMicroserviceApplication myFirstMicroserviceApplication ;
     @MockBean
-    private FilmCategoryRepo filmCategoryRepo;
+    private PaymentRepo paymentRepo;
     @InjectMocks
-    FilmCategoryController filmCategoryController ;
+    PaymentController paymentController ;
     @BeforeEach
     void setup(){
-        filmCategoryRepo = mock(FilmCategoryRepo.class);
+        paymentRepo = mock(PaymentRepo.class);
         myFirstMicroserviceApplication = new MyFirstMicroserviceApplication();
-        filmCategoryController=new FilmCategoryController(filmCategoryRepo);
+        paymentController=new PaymentController(paymentRepo);
     }
 
     @Test
-    public void getFilmCategorysTest() {
+    public void getAllPaymentInfo(){
         //Setup Mock Enviroment for actorRepo
-        List<FilmCategory> list = new ArrayList<FilmCategory>();
-        FilmCategory dummyFilmCategory = new FilmCategory() ;
-        list.add(dummyFilmCategory);
-        when(filmCategoryRepo.findAll()).thenReturn(list);
-        List<FilmCategory> expected = list;
-        List<FilmCategory> actual = filmCategoryController.getFilmCategorys();
-
+        List<Payment> list = new ArrayList<Payment>();
+        Payment dummyPayment = new Payment() ;
+        list.add(dummyPayment);
+        when(paymentRepo.findAll()).thenReturn(list);
+        List<Payment> expected = list;
+        List<Payment> actual = paymentController.getAllPaymentInfo();
         //Tests
-        verify(filmCategoryRepo).findAll();
+        verify(paymentRepo).findAll();
         Assertions.assertEquals(list ,actual , "A list is not returned");
     }
 }

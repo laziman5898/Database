@@ -1,12 +1,12 @@
-package com.tsi.lerai.foulkes.program.mockitotests;
+package com.tsi.lerai.foulkes.program.mockitotests.Controllers;
 
 import com.tsi.lerai.foulkes.program.MyFirstMicroserviceApplication;
 import com.tsi.lerai.foulkes.program.controller.ActorController;
-import com.tsi.lerai.foulkes.program.controller.FilmActorController;
+import com.tsi.lerai.foulkes.program.controller.StoreController;
 import com.tsi.lerai.foulkes.program.repoandobj.actor.Actor;
 import com.tsi.lerai.foulkes.program.repoandobj.actor.ActorRepo;
-import com.tsi.lerai.foulkes.program.repoandobj.filmactors.FilmActor;
-import com.tsi.lerai.foulkes.program.repoandobj.filmactors.FilmActorRepo;
+import com.tsi.lerai.foulkes.program.repoandobj.store.Store;
+import com.tsi.lerai.foulkes.program.repoandobj.store.StoreRepo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,32 +21,31 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class MokitoFilmActorTests {
+public class MockitoStoreTests {
 
     private MyFirstMicroserviceApplication myFirstMicroserviceApplication ;
     @MockBean
-    private FilmActorRepo filmActorRepo;
+    private StoreRepo storeRepo;
     @InjectMocks
-    FilmActorController filmActorController ;
-
+    StoreController storeController ;
     @BeforeEach
     void setup(){
-        filmActorRepo = mock(FilmActorRepo.class);
+        storeRepo = mock(StoreRepo.class);
         myFirstMicroserviceApplication = new MyFirstMicroserviceApplication();
-        filmActorController=new FilmActorController(filmActorRepo);
+        storeController=new StoreController(storeRepo);
     }
 
     @Test
-    public void fetchAllTests () {
+    public void getAllStores (){
         //Setup Mock Enviroment for actorRepo
-        List<FilmActor> list = new ArrayList<FilmActor>();
-        FilmActor dummyFilmActor = new FilmActor(1) ;
-        list.add(dummyFilmActor);
-        when(filmActorRepo.findAll()).thenReturn(list);
-        List<FilmActor> expected = list;
-        List<FilmActor> actual = filmActorController.fetchFilmActorId();
+        List<Store> list = new ArrayList<Store>();
+       Store dummyStore = new Store() ;
+        list.add(dummyStore);
+        when(storeRepo.findAll()).thenReturn(list);
+        List<Store> expected = list;
+        List<Store> actual = storeController.getAllStores();
         //Tests
-        verify(filmActorRepo).findAll();
+        verify(storeRepo).findAll();
         Assertions.assertEquals(list ,actual , "A list is not returned");
     }
 }

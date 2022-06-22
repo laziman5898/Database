@@ -1,4 +1,4 @@
-package com.tsi.lerai.foulkes.program.mockitotests;
+package com.tsi.lerai.foulkes.program.mockitotests.Controllers;
 
 import com.tsi.lerai.foulkes.program.MyFirstMicroserviceApplication;
 import com.tsi.lerai.foulkes.program.controller.ActorController;

@@ -1,12 +1,12 @@
-package com.tsi.lerai.foulkes.program.mockitotests;
+package com.tsi.lerai.foulkes.program.mockitotests.Controllers;
 
 import com.tsi.lerai.foulkes.program.MyFirstMicroserviceApplication;
 import com.tsi.lerai.foulkes.program.controller.ActorController;
-import com.tsi.lerai.foulkes.program.controller.InventoryController;
+import com.tsi.lerai.foulkes.program.controller.FilmActorController;
 import com.tsi.lerai.foulkes.program.repoandobj.actor.Actor;
 import com.tsi.lerai.foulkes.program.repoandobj.actor.ActorRepo;
-import com.tsi.lerai.foulkes.program.repoandobj.inventory.Inventory;
-import com.tsi.lerai.foulkes.program.repoandobj.inventory.InventoryRepo;
+import com.tsi.lerai.foulkes.program.repoandobj.filmactors.FilmActor;
+import com.tsi.lerai.foulkes.program.repoandobj.filmactors.FilmActorRepo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,35 +21,32 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class MockitoInventoryTest {
+public class MokitoFilmActorTests {
 
     private MyFirstMicroserviceApplication myFirstMicroserviceApplication ;
     @MockBean
-    private InventoryRepo inventoryRepo;
+    private FilmActorRepo filmActorRepo;
     @InjectMocks
-    InventoryController inventoryController ;
+    FilmActorController filmActorController ;
+
     @BeforeEach
     void setup(){
-        inventoryRepo = mock(InventoryRepo.class);
+        filmActorRepo = mock(FilmActorRepo.class);
         myFirstMicroserviceApplication = new MyFirstMicroserviceApplication();
-        inventoryController=new InventoryController(inventoryRepo);
+        filmActorController=new FilmActorController(filmActorRepo);
     }
 
     @Test
-    public void fetchAllInventoryTests(){
+    public void fetchAllTests () {
         //Setup Mock Enviroment for actorRepo
-        List<Inventory> list = new ArrayList<Inventory>();
-        Inventory dummyInventory = new Inventory();
-        list.add(dummyInventory);
-        when(inventoryController.findAllInventory()).thenReturn(list);
-        List<Inventory> expected = list;
-        List<Inventory> actual = inventoryController.findAllInventory();
-
+        List<FilmActor> list = new ArrayList<FilmActor>();
+        FilmActor dummyFilmActor = new FilmActor(1) ;
+        list.add(dummyFilmActor);
+        when(filmActorRepo.findAll()).thenReturn(list);
+        List<FilmActor> expected = list;
+        List<FilmActor> actual = filmActorController.fetchFilmActorId();
         //Tests
-        verify(inventoryRepo).findAll();
+        verify(filmActorRepo).findAll();
         Assertions.assertEquals(list ,actual , "A list is not returned");
-
     }
-
-
 }

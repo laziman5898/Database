@@ -1,12 +1,12 @@
-package com.tsi.lerai.foulkes.program.mockitotests;
+package com.tsi.lerai.foulkes.program.mockitotests.Controllers;
 
 import com.tsi.lerai.foulkes.program.MyFirstMicroserviceApplication;
 import com.tsi.lerai.foulkes.program.controller.ActorController;
-import com.tsi.lerai.foulkes.program.controller.StoreController;
+import com.tsi.lerai.foulkes.program.controller.StaffController;
 import com.tsi.lerai.foulkes.program.repoandobj.actor.Actor;
 import com.tsi.lerai.foulkes.program.repoandobj.actor.ActorRepo;
-import com.tsi.lerai.foulkes.program.repoandobj.store.Store;
-import com.tsi.lerai.foulkes.program.repoandobj.store.StoreRepo;
+import com.tsi.lerai.foulkes.program.repoandobj.staff.Staff;
+import com.tsi.lerai.foulkes.program.repoandobj.staff.StaffRepo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,31 +21,31 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class MockitoStoreTests {
+public class MockitoStaffTest {
 
     private MyFirstMicroserviceApplication myFirstMicroserviceApplication ;
     @MockBean
-    private StoreRepo storeRepo;
+    private StaffRepo staffRepo;
     @InjectMocks
-    StoreController storeController ;
+    StaffController staffController ;
     @BeforeEach
     void setup(){
-        storeRepo = mock(StoreRepo.class);
+        staffRepo = mock(StaffRepo.class);
         myFirstMicroserviceApplication = new MyFirstMicroserviceApplication();
-        storeController=new StoreController(storeRepo);
+        staffController=new StaffController(staffRepo);
     }
 
     @Test
-    public void getAllStores (){
+    public void fetchAllStaff(){
         //Setup Mock Enviroment for actorRepo
-        List<Store> list = new ArrayList<Store>();
-       Store dummyStore = new Store() ;
-        list.add(dummyStore);
-        when(storeRepo.findAll()).thenReturn(list);
-        List<Store> expected = list;
-        List<Store> actual = storeController.getAllStores();
+        List<Staff> list = new ArrayList<Staff>();
+        Staff dummystaff = new Staff() ;
+        list.add(dummystaff);
+        when(staffRepo.findAll()).thenReturn(list);
+        List<Staff> expected = list;
+        List<Staff> actual = staffController.getAllStaff();
         //Tests
-        verify(storeRepo).findAll();
+        verify(staffRepo).findAll();
         Assertions.assertEquals(list ,actual , "A list is not returned");
     }
 }

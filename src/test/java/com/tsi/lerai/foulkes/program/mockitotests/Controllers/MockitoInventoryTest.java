@@ -1,12 +1,12 @@
-package com.tsi.lerai.foulkes.program.mockitotests;
+package com.tsi.lerai.foulkes.program.mockitotests.Controllers;
 
 import com.tsi.lerai.foulkes.program.MyFirstMicroserviceApplication;
 import com.tsi.lerai.foulkes.program.controller.ActorController;
-import com.tsi.lerai.foulkes.program.controller.StaffController;
+import com.tsi.lerai.foulkes.program.controller.InventoryController;
 import com.tsi.lerai.foulkes.program.repoandobj.actor.Actor;
 import com.tsi.lerai.foulkes.program.repoandobj.actor.ActorRepo;
-import com.tsi.lerai.foulkes.program.repoandobj.staff.Staff;
-import com.tsi.lerai.foulkes.program.repoandobj.staff.StaffRepo;
+import com.tsi.lerai.foulkes.program.repoandobj.inventory.Inventory;
+import com.tsi.lerai.foulkes.program.repoandobj.inventory.InventoryRepo;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -21,31 +21,35 @@ import java.util.List;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
-public class MockitoStaffTest {
+public class MockitoInventoryTest {
 
     private MyFirstMicroserviceApplication myFirstMicroserviceApplication ;
     @MockBean
-    private StaffRepo staffRepo;
+    private InventoryRepo inventoryRepo;
     @InjectMocks
-    StaffController staffController ;
+    InventoryController inventoryController ;
     @BeforeEach
     void setup(){
-        staffRepo = mock(StaffRepo.class);
+        inventoryRepo = mock(InventoryRepo.class);
         myFirstMicroserviceApplication = new MyFirstMicroserviceApplication();
-        staffController=new StaffController(staffRepo);
+        inventoryController=new InventoryController(inventoryRepo);
     }
 
     @Test
-    public void fetchAllStaff(){
+    public void fetchAllInventoryTests(){
         //Setup Mock Enviroment for actorRepo
-        List<Staff> list = new ArrayList<Staff>();
-        Staff dummystaff = new Staff() ;
-        list.add(dummystaff);
-        when(staffRepo.findAll()).thenReturn(list);
-        List<Staff> expected = list;
-        List<Staff> actual = staffController.getAllStaff();
+        List<Inventory> list = new ArrayList<Inventory>();
+        Inventory dummyInventory = new Inventory();
+        list.add(dummyInventory);
+        when(inventoryController.findAllInventory()).thenReturn(list);
+        List<Inventory> expected = list;
+        List<Inventory> actual = inventoryController.findAllInventory();
+
         //Tests
-        verify(staffRepo).findAll();
+        verify(inventoryRepo).findAll();
         Assertions.assertEquals(list ,actual , "A list is not returned");
+
     }
+
+
 }

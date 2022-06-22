@@ -23,6 +23,15 @@ public class Payment {
     //Empty Constructor
     public Payment (){}
 
+    public Payment(Long payment_id, int customer_id, int staff_id, Long rental_id, float amount, LocalDate payment_date) {
+        this.payment_id = payment_id;
+        this.customer_id = customer_id;
+        this.staff_id = staff_id;
+        this.rental_id = rental_id;
+        this.amount = amount;
+        this.payment_date = payment_date;
+    }
+
     public Long getPayment_id() {
         return payment_id;
     }
