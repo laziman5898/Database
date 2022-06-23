@@ -1,9 +1,14 @@
 package com.tsi.lerai.foulkes.program.mockitotests.Objects;
 
 import ch.qos.logback.core.net.AbstractSSLSocketAppender;
+import com.tsi.lerai.foulkes.program.repoandobj.customer.Customer;
+import com.tsi.lerai.foulkes.program.repoandobj.filmactors.FilmActor;
+import com.tsi.lerai.foulkes.program.repoandobj.filmcategorys.FilmCategory;
+import com.tsi.lerai.foulkes.program.repoandobj.inventory.Inventory;
 import com.tsi.lerai.foulkes.program.repoandobj.movies.Movie;
 import com.tsi.lerai.foulkes.program.repoandobj.payment.Payment;
 import com.tsi.lerai.foulkes.program.repoandobj.staff.Staff;
+import com.tsi.lerai.foulkes.program.repoandobj.store.Store;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -16,6 +21,12 @@ public class SettersAndGettersTest {
     Payment paymentTest = new Payment();
     Staff staffTest ;
     Movie movieTest ;
+
+    Inventory inventoryTest ;
+    Store storeTest ;
+    FilmCategory filmCategoryTest ;
+    Customer customerTest;
+    FilmActor filmActorTest;
 
     @Test
     public void paymentSettersAndGetters(){
@@ -98,6 +109,71 @@ public class SettersAndGettersTest {
         Assertions.assertEquals(2003 , movieTest.getRelease_year());
         movieTest.setRental_duration(200);
         Assertions.assertEquals(200 , movieTest.getRental_duration());
+    }
+
+    @Test
+    public void inventorySettersAndGettersTest(){
+        inventoryTest = new Inventory(2 ,2);
+        inventoryTest.setInventory_id(3L);
+        Assertions.assertEquals(3L,inventoryTest.getInventory_id());
+        inventoryTest.setFilm_id(2);
+        Assertions.assertEquals(2,inventoryTest.getFilm_id());
+        inventoryTest.setStore_id(2);
+        Assertions.assertEquals(2,inventoryTest.getStore_id());
+    }
+
+    @Test
+    public void storeSettersAndGettersTest (){
+        storeTest = new Store(2,2);
+        storeTest.setStore_id(1);
+        Assertions.assertEquals(1,storeTest.getStore_id());
+        storeTest.setAddress_id(7);
+        Assertions.assertEquals(7, storeTest.getAddress_id());
+        storeTest.setManager_staff_id(5);
+        Assertions.assertEquals(5,storeTest.getManager_staff_id());
+    }
+
+    @Test
+    public void filmCategoryTest () {
+        filmCategoryTest = new FilmCategory() ;
+        filmCategoryTest.setCategory_id(1);
+        Assertions.assertEquals(1,filmCategoryTest.getCategory_id());
+        filmCategoryTest.setFilm_id(2L);
+        Assertions.assertEquals(2L,filmCategoryTest.getFilm_id());
+    }
+    @Test
+    public void setCustomerTest(){
+        customerTest = new Customer("James","Brown" , "Brown@email.com","password",2,2,2);
+        customerTest.setCustomer_id(1L);
+        Assertions.assertEquals(1L,customerTest.getCustomer_id());
+        customerTest.setEmail("email@change.com");
+        Assertions.assertEquals("email@change.com",customerTest.getEmail());
+        customerTest.setFirst_name("Tom");
+        Assertions.assertEquals("Tom", customerTest.getFirst_name());
+        customerTest.setAddress_id(2);
+        Assertions.assertEquals(2,customerTest.getAddress_id());
+        customerTest.setLast_name("Green");
+        Assertions.assertEquals("Green",customerTest.getLast_name());
+        customerTest.setLast_update(LocalDate.of(2020,1,21));
+        Assertions.assertEquals(LocalDate.of(2020,1,21),customerTest.getLast_update());
+        customerTest.setPassword("newPassword");
+        Assertions.assertEquals("newPassword",customerTest.getPassword());
+        customerTest.setStore_id(2);
+        Assertions.assertEquals(2,customerTest.getStore_id());
+        customerTest.setActor_id(34L);
+        Assertions.assertEquals(34L, customerTest.getActor_id());
+        customerTest.setLast_update(LocalDate.of(2020,1,21));
+        Assertions.assertEquals(LocalDate.of(2020,1,21),customerTest.getLast_update());
+        customerTest.setCreate_date(LocalDate.of(2020,1,21));
+        Assertions.assertEquals(LocalDate.of(2020,1,21), customerTest.getCreate_date());
+    }
+    @Test
+    public void setFilmActorTest(){
+        filmActorTest = new FilmActor(2);
+        filmActorTest.setActor_id(5L);
+        Assertions.assertEquals(5L,filmActorTest.getActor_id());
+        filmActorTest.setFilm_id(3);
+        Assertions.assertEquals(3,filmActorTest.getFilm_id());
     }
 
 }

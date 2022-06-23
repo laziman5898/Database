@@ -19,6 +19,11 @@ public class Store {
 
         public Store() {}
 
+    public Store(int manager_staff_id, int address_id) {
+        this.manager_staff_id = manager_staff_id;
+        this.address_id = address_id;
+    }
+
     public int getStore_id() {
         return store_id;
     }

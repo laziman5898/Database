@@ -16,6 +16,12 @@ public class Inventory {
 
     public Inventory (){};
 
+
+    public Inventory(int film_id, int store_id) {
+        this.film_id = film_id;
+        this.store_id = store_id;
+    }
+
     public Long getInventory_id() {
         return inventory_id;
     }

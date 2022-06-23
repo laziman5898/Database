@@ -1,5 +1,4 @@
 com\tsi\lerai\foulkes\program\repoandobj\customer\Customer.class
-com\tsi\lerai\foulkes\program\repoandobj\CompleteRepo.class
 com\tsi\lerai\foulkes\program\MyFirstMicroserviceApplication.class
 com\tsi\lerai\foulkes\program\controller\FilmCategoryController.class
 com\tsi\lerai\foulkes\program\repoandobj\store\StoreRepo.class
@@ -7,7 +6,6 @@ com\tsi\lerai\foulkes\program\repoandobj\filmcategorys\FilmCategory.class
 com\tsi\lerai\foulkes\program\controller\InventoryController.class
 com\tsi\lerai\foulkes\program\repoandobj\movies\MovieRepo.class
 com\tsi\lerai\foulkes\program\repoandobj\category\CategoryRepo.class
-com\tsi\lerai\foulkes\program\controller\CompleteController.class
 com\tsi\lerai\foulkes\program\controller\CategoryController.class
 com\tsi\lerai\foulkes\program\controller\FilmActorController.class
 com\tsi\lerai\foulkes\program\controller\StoreController.class
@@ -16,7 +14,6 @@ com\tsi\lerai\foulkes\program\repoandobj\category\Category.class
 com\tsi\lerai\foulkes\program\repoandobj\inventory\Inventory.class
 com\tsi\lerai\foulkes\program\controller\MovieController.class
 com\tsi\lerai\foulkes\program\repoandobj\staff\StaffRepo.class
-com\tsi\lerai\foulkes\program\ErFunctionality.class
 com\tsi\lerai\foulkes\program\repoandobj\staff\Staff.class
 com\tsi\lerai\foulkes\program\repoandobj\actor\Actor.class
 com\tsi\lerai\foulkes\program\repoandobj\payment\Payment.class
@@ -31,3 +28,4 @@ com\tsi\lerai\foulkes\program\repoandobj\filmactors\FilmActor.class
 com\tsi\lerai\foulkes\program\repoandobj\payment\PaymentRepo.class
 com\tsi\lerai\foulkes\program\repoandobj\store\Store.class
 com\tsi\lerai\foulkes\program\repoandobj\customer\CustomerRepo.class
+com\tsi\lerai\foulkes\program\controller\CustomerController.class
